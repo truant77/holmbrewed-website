@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmbrewed | Portfolio Page of Adrian Holm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Anton&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Custom styles for the theme */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .font-anton {
+            font-family: 'Anton', sans-serif;
+        }
+        .bg-brand-dark {
+            background-color: #1a1a1a;
+        }
+        .text-brand-orange {
+            color: #ff8c00;
+        }
+        .text-brand-red {
+            color: #ff4500;
+        }
+        .bg-brand-orange {
+            background-color: #ff8c00;
+        }
+        .bg-brand-red {
+            background-color: #ff4500;
+        }
+        /* --- REPLACE YOUR OLD .btn-primary RULES WITH THIS --- */
+
+        /* --- REPLACE YOUR OLD .btn-primary RULES WITH THIS --- */
+
+.btn-primary {
+    /* This makes it a container for the ::before element */
+    position: relative; 
+    
+    /* This contains the gradient fill inside the rounded corners */
+    overflow: hidden; 
+    
+    /* AS REQUESTED: Button starts transparent */
+    background-color: transparent; 
+    
+    /* This animates the LIFT (transform) and SHADOW (box-shadow) */
+    transition: all 0.4s ease;
+    
+    /* This is your default "glow" shadow */
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+}
+
+/* This is the "FIRE" layer that sits BEHIND the text */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    z-index: 0; /* Sits behind the z-10 text */
+    inset: 0; /* Fills the entire button */
+
+    /* The fiery gradient */
+    background-image: linear-gradient(to right, #ff8c00 0%, #ff4500 51%, #ff8c00 100%);
+    background-size: 200% auto;
+    
+    /* DEFAULT STATE: Invisible */
+    opacity: 0;
+    
+    /* Animate the fill and the slide */
+    transition: opacity 0.4s ease, background-position 0.4s ease;
+    border-radius: 9999px;
+}
+
+/* --- THIS IS THE HOVER STATE --- */
+
+.btn-primary:hover {
+    /* 1. The LIFT animation */
+    transform: translateY(-3px);
+    
+    /* 2. The SHADOW animation */
+    box-shadow: 0 0 30px 8px rgba(255, 69, 0, 0.8);
+}
+
+.btn-primary:hover::before {
+    /* 3. The FILL animation: It fades in AND slides */
+    opacity: 1;
+    background-position: right center;
+}
+
+        /* Section heading underline */
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff8c00, #ff4500);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Text shadow for readability over video */
+        .text-shadow {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+        .text-shadow-md {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        /* --- NEW/AMENDED STYLES FOR TRANSPARENT IMAGES --- */
+        /* Ensure image containers have a transparent background if their parent is not the desired color */
+        /* For the main content image */
+        .about-image-wrapper { /* Added a specific class for clarity */
+            background-color: transparent; /* Explicitly make its background transparent */
+            /* Or, if you want it to match the body's dark background, you could use: */
+            /* background-color: #1a1a1a; */
+        }
+
+        /* For the logo in the header */
+        .header-logo-wrapper { /* Added a specific class for clarity */
+            background-color: transparent; /* Ensure logo wrapper is transparent */
+        }
+        /* Make sure the image itself is not getting an unwanted background */
+        .potion-image, .header-logo {
+            background-color: transparent;
+        }
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 15s linear infinite;
+        }
+
+        /* --- END NEW/AMENDED STYLES --- */
+
+    </style>
+</head>
+<body class="bg-brand-dark">
+
+    <header class="py-4 px-4 md:px-8 absolute w-full z-30">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="header-logo-wrapper"> <img src="HBnoBG.png" alt="Holmbrewed Logo" class="h-12 w-auto header-logo" onerror="this.style.display='none'"> </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-lg text-white hover:text-brand-orange transition duration-300 text-shadow-md">About</a>
+                <a href="#potions" class="text-lg text-white hover:text-brand-orange transition duration-300 text-shadow-md">Our Potions</a>
+                <a href="#work" class="text-lg text-white hover:text-brand-orange transition duration-300 text-shadow-md">Creations</a>
+                <a href="#contact" class="text-lg text-white hover:text-brand-orange transition duration-300 text-shadow-md">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="h-screen flex items-center justify-center text-center overflow-hidden relative">
+        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+            <source src="cauldron1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+        <div class="relative z-20 px-4">
+            <h1 class="text-5xl md:text-7xl font-bold font-anton uppercase tracking-wider mb-4 text-shadow">
+                <span class="text-brand-orange">Brewing</span> <span class="text-white"></span> <span class="text-brand-red">Success</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-neutral-200 text-shadow-md">We mix potent strategies and creative ingredients to formulate solutions that bubble with results.</p>
+            <a href="#contact" class="text-white font-bold py-3 px-8 rounded-full text-lg btn-primary">
+                <span class="relative z-10">Start Your Brew</span>
+            </a>
+        </div>
+    </section>
+
+    <main>
+        <section id="about" class="py-20 px-4">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-12 section-heading">Who's Stirring the Pot?</h2>
+                <div class="mx-auto mb-8 w-40 h-40 flex items-center justify-center about-image-wrapper relative">
+                    <img src="AH.png" alt="Adrian Holm" class="w-full h-full object-cover rounded-full z-10 border-4 border-neutral-700">
+                    <div class="absolute inset-[-5px] rounded-full z-0
+                                border-4 border-dashed border-brand-orange animate-spin-slow opacity-70"></div>
+                </div>
+                <p class="max-w-3xl mx-auto text-lg text-neutral-300 leading-relaxed">
+                    Welcome to Holmbrewed, where ideas are always on the simmer! I'm the master brewer behind the cauldron, dedicated to concocting bespoke  solutions. With a pinch of strategy, a dash of creativity, and a whole lot of code, I turn simple concepts into powerful online presences. My passion is formulating the perfect  potion to help your brand thrive.
+                </p>
+                <div class="mx-auto mb-8 w-36 h-36 flex items-center justify-center about-image-wrapper"> 
+                    <img src="potion1.png" alt="A magical potion" class="potion-image w-full h-full object-contain"> </div>
+            </div>
+        </section>
+
+        <section id="potions" class="py-20 px-4 bg-neutral-900">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-12 section-heading">Our  Potions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-neutral-800 p-8 rounded-lg shadow-xl hover:shadow-brand-orange/30 transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-5xl mb-4 text-brand-orange">🧪</div>
+                        <h3 class="text-2xl font-bold mb-3">Web Development Brew</h3>
+                        <p class="text-neutral-400">Crafting responsive and magical websites from scratch. We mix modern frameworks with custom code to create a potent online portal for your brand.</p>
+                    </div>
+                    <div class="bg-neutral-800 p-8 rounded-lg shadow-xl hover:shadow-brand-orange/30 transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-5xl mb-4 text-brand-red">📈</div>
+                        <h3 class="text-2xl font-bold mb-3">Marketing Elixirs</h3>
+                        <p class="text-neutral-400">Powerful marketing strategies to boost your visibility. From SEO spells to social media enchantments, we make sure your voice is heard.</p>
+                    </div>
+                    <div class="bg-neutral-800 p-8 rounded-lg shadow-xl hover:shadow-brand-orange/30 transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="text-5xl mb-4 text-brand-orange">🎨</div>
+                        <h3 class="text-2xl font-bold mb-3">Brand Identity Tonics</h3>
+                        <p class="text-neutral-400">We formulate a strong brand identity that captivates your audience. This includes logos, color schemes, and messaging that tell your unique story.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="work" class="py-20 px-4">
+            <div class="container mx-auto text-center">
+                   <h2 class="text-4xl font-bold mb-12 section-heading">Fresh From the Cauldron</h2>
+                   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                       <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://placehold.co/600x400/ff4500/1a1a1a?text=Project+One" alt="Project One" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ff4500/1a1a1a?text=Image+Error';">
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="text-center p-4">
+                                <h3 class="text-xl font-bold text-white mb-2">E-Commerce Elixir</h3>
+                                <p class="text-neutral-300">A magical online store.</p>
+                            </div>
+                        </div>
+                    </div>
+                       <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://placehold.co/600x400/ff8c00/1a1a1a?text=Project+Two" alt="Project Two" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ff8c00/1a1a1a?text=Image+Error';">
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="text-center p-4">
+                                <h3 class="text-xl font-bold text-white mb-2">Corporate Spellbook</h3>
+                                <p class="text-neutral-300">A professional brand website.</p>
+                            </div>
+                        </div>
+                    </div>
+                       <div class="group relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://placehold.co/600x400/dc2626/1a1a1a?text=Project+Three" alt="Project Three" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null;this.src='https://placehold.co/600x400/dc2626/1a1a1a?text=Image+Error';">
+                        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="text-center p-4">
+                                <h3 class="text-xl font-bold text-white mb-2">Blogger's Brew</h3>
+                                <p class="text-neutral-300">A content-focused platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 px-4 bg-neutral-900">
+            <div class="container mx-auto text-center">
+                   <h2 class="text-4xl font-bold mb-12 section-heading">Let's Brew Something Together</h2>
+                   <p class="max-w-2xl mx-auto text-lg text-neutral-300 mb-10">Have a project in mind or just want to chat about the magic of  creation? Send a message, and let's get the cauldron bubbling.</p>
+                   <form action="#" method="POST" class="max-w-xl mx-auto">
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <input type="text" placeholder="Your Name" class="w-full bg-neutral-800 border-2 border-neutral-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                        <input type="email" placeholder="Your Email" class="w-full bg-neutral-800 border-2 border-neutral-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-brand-orange transition-colors">
+                     </div>
+                     <textarea placeholder="Your Magical Idea..." rows="5" class="w-full bg-neutral-800 border-2 border-neutral-700 rounded-lg py-3 px-4 mb-6 text-white focus:outline-none focus:border-brand-orange transition-colors"></textarea>
+                     <button type="submit" class="bg-gradient-to-r from-brand-orange to-brand-red text-white font-bold py-3 px-12 rounded-full text-lg btn-primary">
+                        Send Message
+                     </button>
+                   </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-8 px-4">
+        <div class="container mx-auto text-center text-neutral-400">
+            <p class="mb-2">Holmbrewed &copy; 2025 - All Rights Reserved</p>
+            <p>Crafted with 🧙‍♂️ in South Africa</p>
+            </div>
+    </footer>
+
+</body>
+</html>
